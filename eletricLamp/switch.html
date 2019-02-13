@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eletrc Lamp</title>
+</head>
+<body>
+<input type="button">
+<script>
+
+    var EletricLamp = function () {
+        this.status = status;
+        this.getStatus = function () {
+            return this.status;
+        }
+
+        this.turnOff = function () {
+            this.status = false;
+        }
+        this.turnOn = function () {
+            this.status = true;
+        }
+        this
+    }
+    var SwitchButon = function (eletricLamp) {
+        this.status;
+        this.lamp = eletricLamp;
+        this.connectToLamp = function () {
+            this.status = this.lamp.getStatus();
+        }
+        this.switchOff = function () {
+            return this.lamp.turnOff();
+        }
+        this.switchOn = function () {
+            return this.lamp.turnOn();
+        }
+        this.getStatus = function () {
+            return this.status;
+        }
+    }
+
+    var eletricLamp = new EletricLamp();
+
+    var switchButton = new SwitchButon(eletricLamp);
+
+    for (var i = 1; i <= 10; i++){
+        switchButton.connectToLamp();
+        if(switchButton.getStatus()){
+            switchButton.switchOff();
+            console.log(switchButton.getStatus());
+            document.write("Tắt <br/>");
+        } else{
+            switchButton.switchOn();
+            console.log(switchButton.getStatus());
+            document.write("Bật<br/>");
+        }
+    }
+
+
+</script>
+</body>
+</html>
